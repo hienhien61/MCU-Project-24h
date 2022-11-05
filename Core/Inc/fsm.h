@@ -11,5 +11,6 @@
 #include "global.h"
 
 void fsm_simple_buttons_run();
+void fsm_long_buttons_run();
 
 #endif /* SRC_FSM_H_ */

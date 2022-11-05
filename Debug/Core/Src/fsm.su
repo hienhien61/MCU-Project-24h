@@ -1,1 +1,2 @@
 fsm.c:9:6:fsm_simple_buttons_run	8	static
+fsm.c:117:6:fsm_long_buttons_run	8	static

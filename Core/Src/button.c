@@ -20,7 +20,7 @@ int KeyReg2[KEY_SIZE] = {NORMAL_STATE};
 int KeyReg3[KEY_SIZE] = {NORMAL_STATE};
 int button_state[KEY_SIZE] = {0};
 
-int TimerForKeyPress = 3000;
+int TimerForKeyPress = 300;
 
 void readButton(){
 	button_state[0] = HAL_GPIO_ReadPin(Button1_GPIO_Port, Button1_Pin);
@@ -71,14 +71,12 @@ void resetKey(){
 
 int isIncLongPressed(){
 	if(button2long_flag == 1){
-//		button2long_flag = 0;
 		return 1;
 	}
 	return 0;
 }
 int isDecLongPressed(){
 	if(button3long_flag == 1){
-//		button3long_flag = 0;
 		return 1;
 	}
 	return 0;
@@ -96,7 +94,7 @@ void getKeyInput(){
 				KeyReg3[i] = KeyReg2[i];
 				if(KeyReg2[i] == PRESSED_STATE){
 					subKeyProcess(i);
-					TimerForKeyPress = 3000;
+					TimerForKeyPress = 300;
 				}
 				if(KeyReg2[i] != PRESSED_STATE) resetKey();
 			}
@@ -106,8 +104,8 @@ void getKeyInput(){
 					if (TimerForKeyPress == 0){
 					   if(KeyReg2[i] == PRESSED_STATE){
 						  subKeyLongProcess(i);
-					   }
-					  TimerForKeyPress = 3000;
+					   } else resetKey();
+					  TimerForKeyPress = 300;
 					}
 			}
 		}

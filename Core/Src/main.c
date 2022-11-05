@@ -101,14 +101,23 @@ int main(void)
   status = INIT;
   counter = 9;
   //clearLed();
+  setTimer1(1000);
+  setTimer2(1000);
   while (1)
   {
 //	if(isIncLongPressed() == 1) setLedYellow();
 //	//else HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, SET);
 //	if(isIncPressed() == 1) setLedGreen();
 //	//else HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
+
+	  //Dieu khien LED chop tat
+	  if(timer2_flag == 1){
+		  HAL_GPIO_TogglePin(LED_RED1_GPIO_Port, LED_RED1_Pin);
+		  setTimer2(1000);
+	  }
+
 	  fsm_simple_buttons_run();
-	  //fsm_long_buttons_run();
+	  fsm_long_buttons_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -211,7 +220,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_RED1_Pin|LED_YELLOW1_Pin|LED_GREEN1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_YELLOW1_Pin|LED_GREEN1_Pin|LED_RED1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, a1_Pin|b1_Pin|c1_Pin|d1_Pin
@@ -223,8 +232,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED_RED1_Pin LED_YELLOW1_Pin LED_GREEN1_Pin */
-  GPIO_InitStruct.Pin = LED_RED1_Pin|LED_YELLOW1_Pin|LED_GREEN1_Pin;
+  /*Configure GPIO pins : LED_YELLOW1_Pin LED_GREEN1_Pin LED_RED1_Pin */
+  GPIO_InitStruct.Pin = LED_YELLOW1_Pin|LED_GREEN1_Pin|LED_RED1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

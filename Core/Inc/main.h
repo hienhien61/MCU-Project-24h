@@ -64,12 +64,12 @@ void Error_Handler(void);
 #define Button2_GPIO_Port GPIOC
 #define Button3_Pin GPIO_PIN_15
 #define Button3_GPIO_Port GPIOC
-#define LED_RED1_Pin GPIO_PIN_0
-#define LED_RED1_GPIO_Port GPIOA
 #define LED_YELLOW1_Pin GPIO_PIN_1
 #define LED_YELLOW1_GPIO_Port GPIOA
 #define LED_GREEN1_Pin GPIO_PIN_2
 #define LED_GREEN1_GPIO_Port GPIOA
+#define LED_RED1_Pin GPIO_PIN_5
+#define LED_RED1_GPIO_Port GPIOA
 #define a1_Pin GPIO_PIN_0
 #define a1_GPIO_Port GPIOB
 #define b1_Pin GPIO_PIN_1
