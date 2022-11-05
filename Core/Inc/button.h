@@ -15,9 +15,12 @@
 
 #define KEY_SIZE	3
 
-int isButton1Pressed();
-int isButton2Pressed();
-int isButton3Pressed();
+int isResetPressed();
+int isIncPressed();
+int isDecPressed();
+
+int isIncLongPressed();
+int isDecLongPressed();
 
 void getKeyInput();
 

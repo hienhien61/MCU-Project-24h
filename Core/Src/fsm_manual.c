@@ -1,9 +1,10 @@
 /*
+
  * fsm_manual.c
  *
  *  Created on: Nov 3, 2022
  *      Author: PC PHUONG
- */
+
 #include "fsm_manual.h"
 
 void fsm_manual_run(){
@@ -48,3 +49,4 @@ void fsm_manual_run(){
 	}
 }
 
+*/

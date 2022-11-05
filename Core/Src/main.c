@@ -26,6 +26,7 @@
 #include "button.h"
 #include "fsm_automatic.h"
 #include "fsm_manual.h"
+#include "fsm.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,13 +99,16 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   status = INIT;
+  counter = 9;
+  //clearLed();
   while (1)
   {
-//	  fsm_manual_run();
-//	  fsm_automatic_run();
-	  if(isButton1Pressed() == 1) HAL_GPIO_TogglePin(LED_RED1_GPIO_Port, LED_RED1_Pin);
-	  if(isButton2Pressed() == 1) HAL_GPIO_TogglePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
-	  if(isButton3Pressed() == 1) HAL_GPIO_TogglePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
+//	if(isIncLongPressed() == 1) setLedYellow();
+//	//else HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, SET);
+//	if(isIncPressed() == 1) setLedGreen();
+//	//else HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
+	  fsm_simple_buttons_run();
+	  //fsm_long_buttons_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
