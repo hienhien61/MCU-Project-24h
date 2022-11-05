@@ -1,0 +1,5 @@
+function.c:9:6:clearLed	8	static
+function.c:15:6:setLedRed	8	static
+function.c:21:6:setLedGreen	8	static
+function.c:27:6:setLedYellow	8	static
+function.c:33:6:display7SEG	16	static
